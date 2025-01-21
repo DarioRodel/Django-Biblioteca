@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1><strong>Autores</strong></h1>
+<ul>
+    {% for author in authors %}
+        <li>
+            <a href="{% url 'author_detail' author.id %}">{{ author.first_name }} {{ author.last_name }}</a>
+        </li>
+    {% endfor %}
+</ul>
+<form action="{% url 'add_author' %}" method="get">
+    <button type="submit">Añadir un autor</button>
+</form>
+<br>
+<form action="{% url 'index' %}" method="get">
+    <button type="submit">Volver a la lista de libros</button>
+</form>
+
+</body>
+</html>

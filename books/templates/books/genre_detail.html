@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h2>Libro del genero: {{ genre.name }}</h2>
+<ul>
+{% for book in genre.book_set.all %}
+    <li>
+        <a href="{% url 'book_detail' book.id%}">{{ book.title }}</a>
+    </li>
+    {% empty %}
+        <li>No hay lista de este genero</li>
+{% endfor %}
+</ul>
+<form action="{% url 'genre_list' %}" method="get">
+    <button type="submit">Volver a la lista de generos</button>
+</form>
+<br>
+<form action="{% url 'index' %}" method="get">
+    <button type="submit">Volver a la lista de libros</button>
+</form>
+</body>
+</html>

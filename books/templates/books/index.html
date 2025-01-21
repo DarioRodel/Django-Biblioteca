@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Libreria</h1>
+<ul>
+    {% for book in books %}
+        <li>
+            <h3>Nombre libro: <a href="{% url 'book_detail' book.id %}">{{ book.title }}</a></h3>
+            <h3>Autor:{% for author in book.author.all %}
+                <a href="{% url 'author_detail' author.id %}">{{ author.first_name }} {{ author.last_name }}</a>
+                {% if not forloop.last %},
+                {% endif %}
+            {% endfor %}</h3>
+
+            <form action="{% url 'book_detail' book.id %}" method="get">
+                <button type="submit">Ver detalles</button>
+            </form>
+
+        </li>
+    {% endfor %}
+    <br>
+    <form action="{% url 'author_list' %}" method="get">
+        <button type="submit">Ver todos los autores</button>
+    </form>
+    <br>
+    <form action="{% url 'genre_list' %}" method="get">
+        <button type="submit">Lista de generos</button>
+    </form>
+    <br>
+    <form action="{% url 'add_author' %}" method="get">
+        <button type="submit">Añadir autor</button>
+    </form>
+</ul>
+</body>
+</html>
