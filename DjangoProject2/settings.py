@@ -39,6 +39,9 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "books"
 ]
+LOGIN_REDIRECT_URL = "/"
+LOGOUT_REDIRECT_URL = "/"
+LOGIN_URL="accounts/login"
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

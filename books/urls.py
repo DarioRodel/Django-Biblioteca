@@ -11,4 +11,5 @@ urlpatterns = [
     path('genre/<int:genre_id>/', views.genre_detail, name='genre_detail'),
 
     path('authors1/',views.add_author, name='add_author'),
+
 ]
